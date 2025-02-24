@@ -5,6 +5,6 @@ const uploadController = require('../controllers/uploadController');
 
 const upload = multer({ dest: 'uploads/' });
 
-router.post('/upload', upload.single('csvFile'), uploadController.uploadFile);
+router.post('/upload', upload.single('csvFile'), uploadController.uploadCsv);
 
 module.exports = router;

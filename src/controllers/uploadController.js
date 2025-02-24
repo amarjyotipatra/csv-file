@@ -7,7 +7,7 @@ const imageProcessingService = require('../services/imageProcessingService')
 
 exports.uploadCsv = async (req, res) => {
  try {
-    const reqId= uuidv4()
+    const requestId= uuidv4()
     const file=req.file
     if (!file) {
         return res.status(400).json({ error: 'No CSV file uploaded' });
