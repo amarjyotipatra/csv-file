@@ -10,5 +10,16 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("mysql://root:root@localhost:3306/csvdb")
+}
+
+model ProcessingRequest {
+  id             String   @id @default(uuid())
+  requestId      String   @unique
+  productName    String
+  inputImageUrls String   // Comma-separated URLs
+  outputImageUrls String? // Comma-separated URLs after processing
+  status         String   @default("pending") // pending, processing, completed, failed
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
